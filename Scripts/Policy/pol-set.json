@@ -1,0 +1,16 @@
+[
+  {
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+    "parameters": {
+      "tagName": {
+        "value": "Business Unit"
+      },
+      "tagValue": {
+        "value": "Finance"
+      }
+    }
+  },
+  {
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/464dbb85-3d5f-4a1d-bb09-95a9b5dd19cf"
+  }
+]

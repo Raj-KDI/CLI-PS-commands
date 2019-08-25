@@ -1,0 +1,35 @@
+#Get all policy assignment
+az policy assignment list
+
+#Get all poilicy definations
+az policy definition list
+
+#Assign policy assignment (NOT WORKING)
+az policy assignment create --scope "/subscriptions/c5a29ff8-babb-4c3f-963e-5abcab3fbe9e/resourceGroups/policy-rg" --display-name "New Policy by Raj" --policy "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c" -p pol-assignment.txt
+
+#Remove policy assignment (NOT WORKING)
+az policy assignment delete --name "New Policy by Raj" --scope "/subscriptions/c5a29ff8-babb-4c3f-963e-5abcab3fbe9e/resourceGroups/policy-rg"
+
+#Create policy definations
+az policy definition create --name readOnlyStorage --rules pol-def.txt
+
+#Delete policy definations
+az policy definition delete --name readOnlyStorage
+
+#List all initiative definations
+az policy set-definition list
+
+#Create inititive definations
+az policy set-definition create --name "Raj-PolicySetDefinition" --definitions pol-set.json
+
+#Assign inititive definations to subscription
+az policy assignment create --scope "/subscriptions/c5a29ff8-babb-4c3f-963e-5abcab3fbe9e" --display-name "New Policy by Raj" --policy "/subscriptions/c5a29ff8-babb-4c3f-963e-5abcab3fbe9e/providers/Microsoft.Authorization/policySetDefinitions/Raj-PolicySetDefinition"
+
+#Assign inititive definations to resource group
+az policy assignment create --scope "/subscriptions/c5a29ff8-babb-4c3f-963e-5abcab3fbe9e/resourceGroups/policy-rg" --display-name "New Policy by Raj" --policy "/subscriptions/c5a29ff8-babb-4c3f-963e-5abcab3fbe9e/providers/Microsoft.Authorization/policySetDefinitions/Raj-PolicySetDefinition"
+
+#Remove initiative defination assignment
+az policy assignment delete --name "New Policy by Raj" --scope "/subscriptions/c5a29ff8-babb-4c3f-963e-5abcab3fbe9e/resourceGroups/policy-rg"
+
+#Delete inititive definations(Does not allow deletion in case an assignment is already there) 
+az policy set-definition delete --name "Raj-PolicySetDefinition"

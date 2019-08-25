@@ -1,0 +1,35 @@
+#Get all the tags in the subscription
+az tag list
+
+#Get all the tags in the RG
+az group show -n azfromcli --query tags
+
+# Assign/update resource group a tag inline
+az group update -n azfromcli --set tags.Environment=Test tags.Dept=IT
+
+# Assign VM a tag inline (Overwrites the existing tags)
+az resource tag --tags ProjectId="222-333-444" Owner="Raj" --resource-group  azfromcli --resource-type Microsoft.Compute/virtualMachines --name testvm
+
+# Update VM a tag inline(Updates with the existing tags)
+az resource update --tags ProjectId="111-222-333" Owner="Raj Kishore Marandi" --resource-group  azfromcli --resource-type Microsoft.Compute/virtualMachines --name testvm
+
+#Get all the tags in a resource group
+az group show --name azfromcli --query tags
+
+#Get all resource assigned by a tag id
+#Get-AzResource -TagName "ProjectId"
+
+#Get all resource a tag id
+az resource list --tag  ProjectId=111-222-333
+
+#Get all the tags from a resource
+az resource show --id /subscriptions/c5a29ff8-babb-4c3f-963e-5abcab3fbe9e/resourceGroups/azfromcli/providers/Microsoft.Compute/virtualMachines/testvm --query tags
+			   
+#Delete all assigned tags from RG (NOT WORKING)
+az group update -n azfromcli --tags @{}
+
+#Delete all assigned tags from a vm (NOT WORKING)
+az resource tag --tags @{} --resource-group  azfromcli --resource-type Microsoft.Compute/virtualMachines --name testvm
+
+az resource update --remove tags --resource-group  azfromcli --resource-type Microsoft.Compute/virtualMachines
+ --name testvm

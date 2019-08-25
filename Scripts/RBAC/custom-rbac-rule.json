@@ -1,0 +1,19 @@
+{
+  "Name": "Custom Role By Raj",
+  "Description": "Can monitor all resources and start and restart virtual machines by Raj",
+  "Actions": [
+    "*/read",
+    "Microsoft.ClassicCompute/virtualmachines/restart/action",
+    "Microsoft.ClassicCompute/virtualmachines/start/action"
+  ],
+  "NotActions": [
+    "*/write"
+  ],
+  "DataActions": [
+    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+  ],
+  "NotDataActions": [
+    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
+  ],
+  "AssignableScopes": [ "/subscriptions/c5a29ff8-babb-4c3f-963e-5abcab3fbe9e" ]
+}

@@ -1,0 +1,8 @@
+#Login to Azure
+az login
+
+#Set the subscription using subscription id.
+az account set --subscription "c5a29ff8-babb-4c3f-963e-5abcab3fbe9e"
+
+#Set the subscription using subscription name.
+az account set --subscription "Visual Studio Enterprise – MPN"

@@ -1,0 +1,2 @@
+#Create Virtual machine
+az vm create --computer-name "cli-vm" --location "west us" --admin-password "cli-vmcli-vm1#" --admin-username "clivm" --resource-group "azfromcli" --name "cli-vm" --image Win2016Datacenter

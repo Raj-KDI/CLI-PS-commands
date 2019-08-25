@@ -1,0 +1,9 @@
+{
+  "if": {
+    "field": "type",
+    "equals": "Microsoft.Storage/storageAccounts/write"
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
